@@ -18,14 +18,6 @@ Fully responsive • Dark/Light mode ready • Zero text truncation • Beautifu
 - Feature cards with icons and descriptions
 - Built with the latest .NET 8 + MAUI best practices (2025)
 
-## Screenshots
-
-| Light Mode | Dark Mode |
-|------------|-----------|
-| <img src="https://raw.githubusercontent.com/kilog/MauiShowcase/main/screenshots/light.png" width="300"/> | <img src="https://raw.githubusercontent.com/kilog/MauiShowcase/main/screenshots/dark.png" width="300"/> |
-
-*(Coming soon – add your own screenshots!)*
-
 ## Run it yourself (30 seconds)
 
 ```bash
