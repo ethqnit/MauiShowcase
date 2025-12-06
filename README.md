@@ -8,7 +8,7 @@ A clean, modern, and **fully functional** .NET MAUI showcase app – perfect as 
 
 Fully responsive • Dark/Light mode ready • Zero text truncation • Beautiful cards • Hot Reload demo
 
-<img src="https://raw.githubusercontent.com/kilog/MauiShowcase/main/screenshots/screenshot1.png" alt="Screenshot" width="800"/>
+<img src="https://github.com/ethqnit/MauiShowcase/blob/main/showcase.png?raw=true" alt="Screenshot" width="800"/>
 
 ## Features
 
