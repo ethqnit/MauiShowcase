@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiShowcase.MainPage"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+
+    <!-- Safe area handling + generous padding so nothing ever gets cut off -->
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="30,60,30,40" />
+            <!-- extra top for notch/status bar -->
+            <On Platform="Android" Value="20,40,20,30" />
+            <On Platform="WinUI" Value="30,30,30,30" />
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="28"
+                             VerticalOptions="Start"
+                             HorizontalOptions="Fill">
+
+            <!-- Header -->
+            <Image Source="dotnet_bot.png"
+                   HeightRequest="140"
+                   HorizontalOptions="Center"
+                   SemanticProperties.Description=".NET Bot" />
+
+            <Label Text="Welcome to .NET MAUI"
+                   FontSize="34"
+                   FontAttributes="Bold"
+                   TextColor="{DynamicResource PrimaryTextColor}"
+                   HorizontalTextAlignment="Center"
+                   LineBreakMode="WordWrap"
+                   MaxLines="2" />
+
+            <Label Text="Build beautiful native apps with C# &amp; XAML"
+                   FontSize="18"
+                   TextColor="{DynamicResource SecondaryTextColor}"
+                   Opacity="0.85"
+                   HorizontalTextAlignment="Center"
+                   LineBreakMode="WordWrap"
+                   Margin="0,0,0,20" />
+
+            <!-- Counter Button -->
+            <Frame BackgroundColor="{DynamicResource Primary}"
+                   CornerRadius="16"
+                   Padding="32,20"
+                   HasShadow="True"
+                   HorizontalOptions="Center"
+                   MinimumWidthRequest="220">
+                <Label x:Name="CounterLabel"
+                       Text="Tap me!"
+                       FontSize="22"
+                       FontAttributes="Bold"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center" />
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCounterClicked" />
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <!-- Feature Cards -->
+            <CollectionView ItemsSource="{Binding Features}"
+                            Margin="0,20,0,10">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="12" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="local:Feature">
+                        <Frame BackgroundColor="{DynamicResource CardBackgroundColor}"
+                               CornerRadius="16"
+                               HasShadow="True"
+                               Padding="20"
+                               Margin="0,4">
+                            <Grid ColumnDefinitions="70,*" ColumnSpacing="16">
+                                <Label Text="{Binding Icon}"
+                                       FontSize="40"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center" />
+
+                                <VerticalStackLayout Grid.Column="1" Spacing="6">
+                                    <Label Text="{Binding Title}"
+                                           FontSize="20"
+                                           FontAttributes="Bold"
+                                           TextColor="{DynamicResource PrimaryTextColor}"
+                                           LineBreakMode="WordWrap" />
+                                    <Label Text="{Binding Description}"
+                                           FontSize="15"
+                                           TextColor="{DynamicResource SecondaryTextColor}"
+                                           LineBreakMode="WordWrap"
+                                           MaxLines="3" />
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Footer -->
+            <Label Text="Made with ♥ using .NET MAUI"
+                   FontSize="15"
+                   TextColor="{DynamicResource SecondaryTextColor}"
+                   Opacity="0.7"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,40,0,20" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
